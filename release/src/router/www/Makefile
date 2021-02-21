@@ -270,9 +270,9 @@ ifneq ($(RTCONFIG_NETOOL),y)
 	rm -rf $(INSTALLDIR)/www/js/table.js
 endif
 ifeq ($(RTCONFIG_DSL),y)
-	rm -rf $(INSTALLDIR)/www/qis/QIS_welcome.htm
-	rm -rf $(INSTALLDIR)/www/qis/QIS_manual.htm
-	rm -rf $(INSTALLDIR)/www/Advanced_OperationMode_Content.asp
+	#rm -rf $(INSTALLDIR)/www/qis/QIS_welcome.htm
+	#rm -rf $(INSTALLDIR)/www/qis/QIS_manual.htm
+	#rm -rf $(INSTALLDIR)/www/Advanced_OperationMode_Content.asp
 else
 	rm -rf $(INSTALLDIR)/www/Main_Spectrum_Content.asp
 	rm -rf $(INSTALLDIR)/www/SNR.svg
