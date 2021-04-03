@@ -273,7 +273,6 @@ ifneq ($(BUILD_NAME),$(filter $(BUILD_NAME), DSL-AC68U DSL-AX82U))
 	rm -rf $(INSTALLDIR)/www/qis/QIS_manual.htm
 	rm -rf $(INSTALLDIR)/www/Advanced_OperationMode_Content.asp
 else
-	rm -rf $(INSTALLDIR)/www/Main_Spectrum_Content.asp
 	rm -rf $(INSTALLDIR)/www/SNR.svg
 	rm -rf $(INSTALLDIR)/www/BPC.svg
 	rm -rf $(INSTALLDIR)/www/ajax_signals.asp

@@ -379,7 +379,9 @@ define(function(){
 				}
 				else{
 					retArray.push("menu_ParentalControl");
-					retArray.push("menu_QoS");
+					if ((based_modelid == "DSL-AC68U") || (based_modelid == "DSL-AX82U")) {
+						retArray.push("menu_QoS");
+					}
 				}
 
 				if(!adaptiveqos_support){	
@@ -461,8 +463,10 @@ define(function(){
 					retArray.push("menu_GuestNetwork");
 					retArray.push("menu_AccessControl");
 					retArray.push("menu_TrafficAnalyzer");
-					retArray.push("menu_QoS");
-					retArray.push("menu_BandwidthMonitor");
+					if ((based_modelid != "DSL-AC68U") && (based_modelid != "DSL-AX82U")) {
+						retArray.push("menu_QoS");
+						retArray.push("menu_BandwidthMonitor");
+					}
 					retArray.push("menu_AiProtection");
 					retArray.push("menu_WAN");
 					retArray.push("menu_IPv6");
@@ -470,7 +474,6 @@ define(function(){
 					retArray.push("menu_VLAN");
 					retArray.push("menu_Firewall");
 					retArray.push("menu_ParentalControl");
-					retArray.push("menu_QoS");
 					retArray.push("menu_OpenNAT");
 					retArray.push("menu_Wireless");
 
@@ -481,8 +484,10 @@ define(function(){
 				else if(isSwMode("ap")){
 					retArray.push("menu_AccessControl");
 					retArray.push("menu_TrafficAnalyzer");
-					retArray.push("menu_QoS");
-					retArray.push("menu_BandwidthMonitor");
+					if ((based_modelid != "DSL-AC68U") && (based_modelid != "DSL-AX82U")) {
+						retArray.push("menu_QoS");
+						retArray.push("menu_BandwidthMonitor");
+					}
 					retArray.push("menu_AiProtection");
 					retArray.push("menu_WAN");
 					retArray.push("menu_IPv6");
@@ -490,7 +495,6 @@ define(function(){
 					retArray.push("menu_VLAN");
 					retArray.push("menu_Firewall");
 					retArray.push("menu_ParentalControl");
-					retArray.push("menu_QoS");
 					retArray.push("menu_OpenNAT");
 
 					if(ifttt_support || alexa_support){
@@ -501,8 +505,10 @@ define(function(){
 					retArray.push("menu_GuestNetwork");
 					retArray.push("menu_AccessControl");
 					retArray.push("menu_TrafficAnalyzer");
-					retArray.push("menu_QoS");
-					retArray.push("menu_BandwidthMonitor");
+					if ((based_modelid != "DSL-AC68U") && (based_modelid != "DSL-AX82U")) {
+						retArray.push("menu_QoS");
+						retArray.push("menu_BandwidthMonitor");
+					}
 					retArray.push("menu_AiProtection");
 					retArray.push("menu_Wireless");
 					retArray.push("menu_WAN");
@@ -511,7 +517,6 @@ define(function(){
 					retArray.push("menu_VLAN");
 					retArray.push("menu_Firewall");
 					retArray.push("menu_ParentalControl");
-					retArray.push("menu_QoS");
 					retArray.push("menu_OpenNAT");
 
 					if(ifttt_support || alexa_support){
