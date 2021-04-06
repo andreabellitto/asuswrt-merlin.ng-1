@@ -159,7 +159,7 @@ then
 	# DSL specific files
 	cp -a release/src-rt-6.x.4708/tc_fw/* $REPO/release/src-rt-6.x.4708/tc_fw/
 	cp -a release/src/router/dsl_drv_tool/* $REPO/release/src/router/dsl_drv_tool
-	cp -a release/src/router/spectrum/* $REPO/release/src/router/spectrum
+	cp -a release/src/router/spectrum/prebuild/* $REPO/release/src/router/spectrum/prebuild/$BUILD_NAME/
 
 elif [ "$BUILD_NAME" == "RT-AX86U" ] || [ "$BUILD_NAME" == "RT-AX68U" ]
 then
@@ -241,7 +241,7 @@ then
 fi
 
 # On AX these are in router-sysdep
-if [ "$BUILD_NAME" != "RT-AX88U" ] && [ "$BUILD_NAME" != "RT-AX92U" ] && [ "$BUILD_NAME" != "RT-AX56U" ] && [ "$BUILD_NAME" != "RT-AX58U" ] && [ "$BUILD_NAME" != "RT-AX86U" ] && [ "$BUILD_NAME" != "DSL-AX82U" || [ "$BUILD_NAME" == "GT-AX11000" ] || [ "$BUILD_NAME" == "RT-AX68U" ]
+if [ "$BUILD_NAME" != "RT-AX88U" ] && [ "$BUILD_NAME" != "RT-AX92U" ] && [ "$BUILD_NAME" != "RT-AX56U" ] && [ "$BUILD_NAME" != "RT-AX58U" ] && [ "$BUILD_NAME" != "RT-AX86U" ] && [ "$BUILD_NAME" != "DSL-AX82U" ] || [ "$BUILD_NAME" == "GT-AX11000" ] || [ "$BUILD_NAME" == "RT-AX68U" ]
 then
 	cp release/src/router/acsd$ARCH$SDK/prebuilt/* $REPO/release/src/router/acsd$ARCH$SDK/prebuilt/
 	cp -a release/src/router/libupnp$ARCH$SDK/* $REPO/release/src/router/libupnp$ARCH$SDK/
@@ -278,6 +278,7 @@ then
         cp -a release/src/router/dsl_autodet/* $REPO/release/src/router/dsl_autodet
 	cp -a release/src/router/dsl_diag/* $REPO/release/src/router/dsl_diag
 	cp -a release/src/router/tr069/* $REPO/release/src/router/tr069
+	cp -a release/src/router/spectrum/prebuild/* $REPO/release/src/router/spectrum/prebuild/$BUILD_NAME/
 fi
 
 # Cleanup
