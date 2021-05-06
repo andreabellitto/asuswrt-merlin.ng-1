@@ -118,6 +118,7 @@ jobs:
             RELEASE_NOTE_FILE=$(echo "${MAJOR_VER}_${MINOR_VER}_note.txt" | sed "s/\./_/")
             echo "Generating manifest file..."
             echo "DSL-AC68U#FW${MAJOR_VER}#EXT${MINOR_VER}#BETAFW0#BETAEXT0#" > ${UPDATE_DIR}/manifest.txt
+            echo "DSL-AX82U#FW${MAJOR_VER}#EXT${MINOR_VER}#BETAFW0#BETAEXT0#" >> ${UPDATE_DIR}/manifest.txt
             cp $HOME/project/workspace/release/CHANGELOG ${UPDATE_DIR}/"${RELEASE_NOTE_FILE}"
             echo "Uploading to github manifest and ${RELEASE_NOTE_FILE}"
             git add ${UPDATE_DIR}
@@ -176,6 +177,16 @@ workflows:
               ignore:
                 - master
                 - mainline
+      - request-testing:
+          type: approval
+          filters:
+            tags:
+              only: /[0-9]+.*gnuton[0-9]+/
+            branches:
+              ignore: /.*/
+          requires:
+            - build_dsl-ax82u
+            - build_dsl-ac68u
       - publish-manifest-and-notes:
           filters:
             tags:
@@ -183,8 +194,7 @@ workflows:
             branches:
               ignore: /.*/
           requires:
-            - build_dsl-ax82u
-            - build_dsl-ac68u
+            - request-testing
       - publish-github-release:
           filters:
             tags:
@@ -192,8 +202,6 @@ workflows:
             branches:
               ignore: /.*/
           requires:
-            - build_dsl-ax82u
-            - build_dsl-ac68u
             - publish-manifest-and-notes
       - publish-github-ci-pre-release:
           filters:
